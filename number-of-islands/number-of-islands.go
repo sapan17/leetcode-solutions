@@ -14,8 +14,7 @@ func numIslands(board [][]byte) int {
                 dfs(&board, i, j) // pass the reference of the whole board
             }
         }
-    }
-    
+    }    
     return res
     
 }
@@ -28,6 +27,6 @@ func dfs(board *[][]byte, i, j int) {
     (*board)[i][j] = '0' // dereference of the pointer and you will get the original board
     dfs(board, i+1, j)
     dfs(board, i, j-1)
-    dfs(board, i, j+1)
     dfs(board, i-1, j)
+    dfs(board, i, j+1)
 }
