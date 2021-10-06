@@ -1,7 +1,7 @@
 func mySqrt(x int) int {
     left,right := 1,x
     for left < right{
-        mid := left +(right-left)/2
+        mid := (left +right)/2
         if mid * mid < x {
             left = mid + 1
         }  else{
