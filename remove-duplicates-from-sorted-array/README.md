@@ -45,7 +45,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 <ul>
 	<li><code>0 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></code></li>
-	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 </div>
