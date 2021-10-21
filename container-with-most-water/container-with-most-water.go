@@ -1,25 +1,28 @@
 func maxArea(height []int) int {
+    A := 0
+    l := 0
+    r := len(height) - 1
+    mini := height[0]
     maxA := 0
-    l, r := 0, len(height)-1
     for l < r{
-        area := min(height[l],height[r])*(r-l)
-        
-        if area > maxA{
-            maxA = area
+        mini = min(height[l], height[r])
+        A = mini * (r-l)
+        if maxA < A{
+            maxA = A
         }
-        
         if height[l] > height[r]{
-            r--
+            r -= 1
         } else{
-            l++
-        } 
+            l += 1
+        }
     }
     return maxA
 }
 
-func min(x int,y int)int{
-    if x < y{
-        return x
+func min(a,b int) int{
+    if a > b{
+        return b
+    } else{
+        return a
     }
-    return y
 }
