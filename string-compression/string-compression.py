@@ -21,5 +21,3 @@ class Solution(object):
                 count = 1
         chars = chars[:i]
         return i
-        
-        
