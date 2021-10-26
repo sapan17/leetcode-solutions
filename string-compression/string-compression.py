@@ -4,9 +4,8 @@ class Solution(object):
         :type chars: List[str]
         :rtype: int
         """
-        i = 0
         count = 1
-        
+        i = 0
         for j in range(1,len(chars)+1):
             if j < len(chars) and chars[j] == chars[j-1]:
                 count += 1
@@ -19,5 +18,6 @@ class Solution(object):
                         chars[i] = k
                         i += 1
                 count = 1
-        chars = chars[:i]
         return i
+        
+        
