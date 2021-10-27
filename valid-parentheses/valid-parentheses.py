@@ -5,14 +5,15 @@ class Solution(object):
         :rtype: bool
         """
         stack = []
-        closeToOpen = {"]" : "[", "}": "{", ")":"("}
-        
-        for c in s:
-            if c in closeToOpen:
-                if stack and stack[-1] == closeToOpen[c]:
+        CloseToOpen = {"]":"[", "}":"{", ")":"("}
+        for r in s:
+            if r in CloseToOpen:
+                if stack and stack[-1] == CloseToOpen[r]:
                     stack.pop()
                 else:
                     return False
             else:
-                stack.append(c)
+                stack.append(r)
         return True if not stack else False
+            
+        
