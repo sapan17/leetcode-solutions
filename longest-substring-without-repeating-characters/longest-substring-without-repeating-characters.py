@@ -7,7 +7,6 @@ class Solution(object):
         charset = set()
         l = 0
         res = 0
-        
         for r in range(len(s)):
             while s[r] in charset:
                 charset.remove(s[l])
