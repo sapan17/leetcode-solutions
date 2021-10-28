@@ -1,6 +1,7 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        count = [0] * 26
+        
+        count = [0]*26
         for i in range(len(s)):
             count[ord(s[i]) - ord('a')] += 1
         for i in range(len(s)):
