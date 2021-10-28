@@ -1,11 +1,13 @@
-class Solution:
-    def setZeroes(self, matrix: List[List[int]]) -> None:
+class Solution(object):
+    def setZeroes(self, matrix):
         """
-        Do not return anything, modify matrix in-place instead.
+        :type matrix: List[List[int]]
+        :rtype: None Do not return anything, modify matrix in-place instead.
         """
         R = len(matrix)
         C = len(matrix[0])
-        rows, cols = set(), set()
+        rows = set()
+        cols = set()
         
         for i in range(R):
             for j in range(C):
