@@ -5,15 +5,15 @@ class Solution(object):
         :rtype: int
         """
         res = max(nums)
-        maxNum, minNum = 1, 1
+        minnum, maxnum = 1, 1
         
         for n in nums:
             if n == 0:
-                maxNum, minNum = 1, 1
-                continue
-            temp = n * maxNum
-            maxNum = max(n*maxNum, n*minNum, n)
-            minNum = min(temp, n*minNum, n)
-            res = max(res, maxNum)
-        return res
+                minnum, maxnum = 1, 1
+            temp = maxnum * n
             
+            maxnum = max(n * maxnum, n * minnum, n)
+            minnum = min(n* minnum, temp, n)
+            res = max(res, maxnum)
+        
+        return res
