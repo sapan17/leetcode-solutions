@@ -5,6 +5,7 @@ class Solution(object):
         :type newInterval: List[int]
         :rtype: List[List[int]]
         """
+        
         res = []
         
         for i in range(len(intervals)):
@@ -17,3 +18,4 @@ class Solution(object):
                 newInterval = [min(newInterval[0], intervals[i][0]), max(newInterval[1], intervals[i][1])]
         res.append(newInterval)
         return res
+                
