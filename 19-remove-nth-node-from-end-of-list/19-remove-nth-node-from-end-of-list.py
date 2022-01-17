@@ -10,16 +10,17 @@ class Solution(object):
         :type n: int
         :rtype: ListNode
         """
-        fast, slow = head, head
+        fast = slow = head
         
         for i in range(n):
             fast = fast.next
         if not fast:
             return head.next
+        
         while fast and fast.next:
             fast = fast.next
             slow = slow.next
-            
+        
         slow.next = slow.next.next
         
         return head
