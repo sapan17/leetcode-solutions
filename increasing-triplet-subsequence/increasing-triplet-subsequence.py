@@ -4,12 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        j = k = float('inf') 
-        for i in range(len(nums)):
-            if nums[i] <= j:
-                j = nums[i]
-            elif nums[i] <= k:
-                k = nums[i]
+        nums1 = nums2 = float('inf')
+        
+        for i in nums:
+            if i <= nums1:
+                nums1 = i
+            elif i <= nums2:
+                nums2 = i
             else:
                 return True
         return False
