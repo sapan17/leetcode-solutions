@@ -4,13 +4,11 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        
+        closeToOpen = {")":"(", "]":"[", "}":'{'}
         stack = []
-        CloseToOpen = {"}":"{", ")":"(", "]":"["}
-        
         for c in s:
-            if c in CloseToOpen:
-                if stack and stack[-1] == CloseToOpen[c]:
+            if c in closeToOpen:
+                if stack and stack[-1] == closeToOpen[c]:
                     stack.pop()
                 else:
                     return False
