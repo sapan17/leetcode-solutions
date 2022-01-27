@@ -4,16 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        maxval, minval = 1, 1
         res = max(nums)
-        minnum, maxnum = 1, 1
-        
-        for n in nums:
-            if n == 0:
-                minnum, maxnum = 1, 1
-            temp = maxnum * n
-            
-            maxnum = max(n * maxnum, n * minnum, n)
-            minnum = min(n* minnum, temp, n)
-            res = max(res, maxnum)
-        
+        for i in nums:
+            if i == 0:
+                maxval, minval = 1, 1
+            tmp = maxval * i
+            maxval = max(maxval*i, minval*i, i)
+            minval = min(tmp, minval*i, i)
+            res = max(res, maxval)
         return res
