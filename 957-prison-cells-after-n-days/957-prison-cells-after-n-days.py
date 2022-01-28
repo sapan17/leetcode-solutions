@@ -6,6 +6,7 @@ class Solution(object):
         :rtype: List[int]
         """
         n = (n-1)%14+1
+        
         while n:
             temp = [0]*8
             for i in range(1, 7):
@@ -15,5 +16,4 @@ class Solution(object):
                     temp[i] = 0
             cells = temp
             n -= 1
-        return cells    
-            
+        return cells
