@@ -11,14 +11,15 @@ class Solution(object):
         :rtype: List[int]
         """
         res = []
-        self.helper(root, res)
+        self.dfs(root, res)
         return res
     
-    
-    def helper(self, root, res):
-        
+    def dfs(self, root, res):
         if root:
-            self.helper(root.left, res)
+            self.dfs(root.left, res)
             res.append(root.val)
-            self.helper(root.right, res)
+            self.dfs(root.right, res)
+        
+            
+        
         
