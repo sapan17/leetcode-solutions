@@ -1,11 +1,11 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        count = {}
-        
+        premap = {}
+        result = 0
+        res = []
         for i, a in enumerate(nums):
-            res = target - a
-            
-            if res in count:
-                return [i, count[res]]
-            count[a] = i
+            result = target - a
+            if result in premap:
+                return[premap[result], i]
+            premap[a] = i
         return
