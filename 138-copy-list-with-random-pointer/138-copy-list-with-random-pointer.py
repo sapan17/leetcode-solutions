@@ -8,27 +8,21 @@ class Node:
 """
 
 class Solution(object):
-    
-    def __init__(self):
-        self.visitedHash = {}
-    
     def copyRandomList(self, head):
         """
         :type head: Node
         :rtype: Node
         """
-        if head  == None:
-            return None
-        
-        if head in self.visitedHash:
-            return self.visitedHash[head]
-        
-        node = Node(head.val, None, None)
-        self.visitedHash[head] = node
-        
-        node.next = self.copyRandomList(head.next)
-        node.random = self.copyRandomList(head.random)
-        
-        return node
-        
-        
+        oldtocopy = {None : None}
+        cur = head
+        while cur:
+            copy = Node(cur.val)
+            oldtocopy[cur] = copy
+            cur = cur.next
+        cur = head    
+        while cur:
+            copy = oldtocopy[cur]
+            copy.next = oldtocopy[cur.next]
+            copy.random = oldtocopy[cur.random]
+            cur = cur.next
+        return oldtocopy[head]
