@@ -5,27 +5,24 @@ class Solution(object):
         :type prerequisites: List[List[int]]
         :rtype: bool
         """
-        preMap = {i:[] for i in range(numCourses)}
-        
-        for crs, pre in prerequisites:
-            preMap[crs].append(pre)
-        
-        visit = set()
-        def dfs(crs):
-            if crs in visit:
+        graph = [[] for _ in xrange(numCourses)]
+        visit = [0 for _ in xrange(numCourses)]
+        for x, y in prerequisites:
+            graph[x].append(y)
+        def dfs(i):
+            if visit[i] == -1:
                 return False
-            if preMap[crs] == []:
+            if visit[i] == 1:
                 return True
-            
-            visit.add(crs)
-            for pre in preMap[crs]:
-                if not dfs(pre): return False
-            visit.remove(crs)
-            preMap[crs] = []
+            visit[i] = -1
+            for j in graph[i]:
+                if not dfs(j):
+                    return False
+            visit[i] = 1
             return True
-        
-        for crs in range(numCourses):
-            if not dfs(crs): return False
+        for i in xrange(numCourses):
+            if not dfs(i):
+                return False
         return True
                 
                 
