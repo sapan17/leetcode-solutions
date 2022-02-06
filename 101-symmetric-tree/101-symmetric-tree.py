@@ -11,7 +11,6 @@ class Solution(object):
         :rtype: bool
         """
         return self.dfs(root, root)
-    
     def dfs(self, root1, root2):
         
         if root1 == None and root2 == None:
@@ -19,4 +18,3 @@ class Solution(object):
         if root1 == None or root2 == None:
             return False
         return root1.val == root2.val and self.dfs(root1.left, root2.right) and self.dfs(root1.right, root2.left)
-    
