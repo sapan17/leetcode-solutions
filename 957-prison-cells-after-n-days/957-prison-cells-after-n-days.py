@@ -5,10 +5,10 @@ class Solution(object):
         :type n: int
         :rtype: List[int]
         """
-        n = (n-1)%14+1
+        n = (n-1) % 14 + 1
         
         while n:
-            temp = [0]*8
+            temp = [0] * 8
             for i in range(1,7):
                 if cells[i-1] == cells[i+1]:
                     temp[i] = 1
@@ -17,4 +17,4 @@ class Solution(object):
             cells = temp
             n -= 1
         return cells
-    
+            
