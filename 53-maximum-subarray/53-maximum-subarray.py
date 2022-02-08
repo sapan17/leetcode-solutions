@@ -5,12 +5,12 @@ class Solution(object):
         :rtype: int
         """
         
-        maxSub = nums[0]
+        maxsub = nums[0]
         cursum = 0
         
         for i in nums:
             if cursum < 0:
                 cursum = 0
             cursum += i
-            maxSub = max(maxSub, cursum)
-        return maxSub
+            maxsub = max(maxsub, cursum)
+        return maxsub
