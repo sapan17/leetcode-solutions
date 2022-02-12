@@ -5,10 +5,16 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        count = 0
-        for i in range(1,n+1):
+        divisor, sqrt_n = [], int(n**0.5)
+        for i in range(1, sqrt_n+1):
             if n % i == 0:
-                count += 1
-                if count == k:
+                k -= 1
+                divisor.append(i)
+                
+                if k == 0:
                     return i
-        return -1
+        if (sqrt_n * sqrt_n) == n:
+            k += 1
+            
+        div_len = len(divisor)
+        return n // divisor[div_len - k] if k <= div_len else -1
