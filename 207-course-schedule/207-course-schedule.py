@@ -5,25 +5,27 @@ class Solution(object):
         :type prerequisites: List[List[int]]
         :rtype: bool
         """
-        graph = [[] for _ in xrange(numCourses)]
-        visit = [0 for _ in xrange(numCourses)]
-        for x, y in prerequisites:
-            graph[x].append(y)
-        def dfs(i):
-            if visit[i] == -1:
-                return False
-            if visit[i] == 1:
-                return True
-            visit[i] = -1
-            for j in graph[i]:
-                if not dfs(j):
-                    return False
-            visit[i] = 1
-            return True
-        for i in xrange(numCourses):
-            if not dfs(i):
-                return False
-        return True
-                
-                
-                
+        alist = defaultdict(list)
+        order = [0]*numCourses
+        
+        for i, j in prerequisites:
+            alist[j].append(i)
+            order[i] += 1
+        #print(order)    
+        
+        q = deque()
+        for i in range(len(order)):
+            if order[i] == 0:
+                q.append(i)
+        
+        count = 0
+        while q:
+            current = q.popleft()
+            count += 1
+            for i in alist[current]:
+                order[i] -= 1
+                if order[i] == 0:
+                    q.append(i)
+        return count == numCourses
+            
+        
