@@ -7,21 +7,21 @@ class Solution(object):
         """
         nums.sort()
         diff = float('inf')
+        
         for i in range(len(nums)-1):
-            lo, hi = i+1, len(nums)-1
+            lo, hi = i + 1, len(nums)-1
             while lo < hi:
-                threesum = nums[i] + nums[lo] + nums[hi]
+                targetsum = nums[i] + nums[lo] + nums[hi]
                 
-                if abs(target-threesum) < abs(diff):
-                    diff = target - threesum
-
-                if threesum > target:
+                if abs(targetsum-target) < abs(diff):
+                    diff = target - targetsum
+                
+                if targetsum > target:
                     hi -= 1
-
-                if threesum < target:
+                    
+                if targetsum < target:
                     lo += 1
-
-                if threesum == target:
+                    
+                if targetsum == target:
                     break
         return target - diff
-        
