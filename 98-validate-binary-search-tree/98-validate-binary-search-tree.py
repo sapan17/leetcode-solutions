@@ -9,7 +9,8 @@ class Solution:
         def validate(node, low=-math.inf, high=math.inf):
             if not node:
                 return True
-            if node.val >= high or node.val <= low:
+            if low >= node.val or high <= node.val:
                 return False
-            return (validate(node.right, node.val, high) and validate(node.left, low, node.val))
+            
+            return validate(node.left, low, node.val) and validate(node.right, node.val, high)
         return validate(root)
