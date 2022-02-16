@@ -1,7 +1,11 @@
-class Solution:
-    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
-        boxTypes.sort(key= lambda x:x[1])
-        boxTypes.reverse()
+class Solution(object):
+    def maximumUnits(self, boxTypes, truckSize):
+        """
+        :type boxTypes: List[List[int]]
+        :type truckSize: int
+        :rtype: int
+        """
+        boxTypes.sort(key= lambda x:x[1], reverse = True)
         res = 0
         for i in range(len(boxTypes)):
             if truckSize > boxTypes[i][0]:
@@ -11,4 +15,3 @@ class Solution:
                 res += boxTypes[i][1] * truckSize
                 truckSize = 0
         return res
-        
