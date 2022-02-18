@@ -4,7 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        for i in range(0,len(nums)-2,2):
-            if nums[i] != nums[i+1]:
-                return nums[i]
-        return nums[-1]
+        count = Counter(nums)
+        for key, values in count.items():
+            if values == 1:
+                return key
+        return -1
