@@ -5,7 +5,6 @@ class Solution(object):
         :rtype: bool
         """
         while n > 0:
-            print(n)
             if n % 5 == 0:
                 n /= 5
             elif n % 3 == 0:
